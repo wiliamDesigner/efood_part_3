@@ -26,7 +26,7 @@ const Cart = () => {
     dispatch(close());
   };
 
-  // ✅ ADICIONADO: cálculo do total
+ 
   const total = itens.reduce((acc, item) => acc + item.preco, 0);
 
   return (
@@ -60,7 +60,6 @@ const Cart = () => {
         <ValTotal>
           <span>Valor Total</span>
 
-          {/* ✅ ALTERADO: agora é dinâmico */}
           <span>
             {total.toLocaleString("pt-BR", {
               style: "currency",

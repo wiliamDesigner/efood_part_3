@@ -40,6 +40,13 @@ export const SideBar = styled.div`
 
   display: flex;
   flex-direction: column;
+
+  @media (max-width: 425px) {
+    width: 280px;
+    height: 100%;
+  }
+
+
 `;
 
 export const Buttoncss = styled(Button)`

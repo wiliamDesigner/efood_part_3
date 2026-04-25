@@ -28,6 +28,7 @@ height: 100%;
  @media (max-width: 768px) {
     flex-direction: column; 
     align-items: center;
+    height: 20px;
   }
 
   @media (max-width: 425px) {
@@ -91,14 +92,14 @@ export const Content = styled.div`
 
 
    @media (max-width: 768px) {
-    width: 50%;        /* 👈 diminui a largura */
-    height: 70%;      /* 👈 deixa crescer naturalmente */
+    width: 50%;       
+    height: 70%;     
   }
 
 
    @media (max-width: 425px) {
-    width: 50%;        /* 👈 diminui a largura */
-    height: 70%;      /* 👈 deixa crescer naturalmente */
+    width: 50%;        
+    height: 70%;      
   }
 
 `;
@@ -111,7 +112,7 @@ export const Texto = styled.h2`
 
 export const BotaoComprar=styled.button`
 width: 218px;
-height: 24px;
+height: 34px;
 color:${cores.vermelha};
 background-color: #FFEBD9;
 outline: none;

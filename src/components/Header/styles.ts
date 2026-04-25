@@ -22,7 +22,7 @@ export const Headerbar = styled.header`
     justify-content: center;
     gap: 12px;
     text-align: center;
-    max-width: 100%; /* 👈 opcional: deixa mais estreito no tablet */
+    max-width: 100%; 
   }
 
   @media (max-width: 425px) {
@@ -31,7 +31,7 @@ export const Headerbar = styled.header`
     justify-content: center;
     gap: 12px;
     text-align: center;
-    max-width: 100%; /* 👈 opcional: deixa mais estreito no celular*/
+    max-width: 100%; 
   }
 
 `;

@@ -87,7 +87,7 @@ function Perfil() {
               <img src={logoimg2} alt="Logo" />
             </Link>
 
-            {/* 🔥 aqui muda automático */}
+       
             <Paragraforight>
               {carrinho.length} Produto(s) no carrinho
             </Paragraforight>
@@ -107,7 +107,7 @@ function Perfil() {
           </Containerimgep>
         </Containerimg>
 
-        {/* 🔥 passa a função */}
+        
         <Pizzas adicionarAoCarrinho={adicionarAoCarrinho} />
       </LayoutContainer>
 
