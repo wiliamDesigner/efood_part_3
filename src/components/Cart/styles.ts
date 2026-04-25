@@ -90,7 +90,7 @@ export const Comida = styled.div`
     margin-left: 8px;
 `;
 
-export const Button_x = styled.button`
+export const ButtonX = styled.button`
  width: 16px;
  height: 16px;
  border: none;

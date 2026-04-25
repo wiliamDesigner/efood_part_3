@@ -1,5 +1,4 @@
-import Button from "../button";
-import pizzaImg from "../../assets/imagem-da-pizza.png";
+
 import { remove } from "../../store/reducers/cart";
 
 import {
@@ -11,7 +10,7 @@ import {
   ValTotal,
   Preco,
   Comida,
-  Button_x,
+  ButtonX,
 } from "../Cart/styles";
 
 import { useDispatch, useSelector } from "react-redux";
@@ -51,9 +50,9 @@ const Cart = () => {
                 </Comida>
               </div>
 
-             <Button_x onClick={() => dispatch(remove(item.id))}>
+             <ButtonX onClick={() => dispatch(remove(item.id))}>
                  🗑
-              </Button_x>
+              </ButtonX>
             </Item>
           ))}
         </ul>

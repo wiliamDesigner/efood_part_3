@@ -1,15 +1,11 @@
-import { CartButton, Fundo, Headerbar, Logo, Paragrafo } from "./styles";
+import { Fundo, Headerbar, Logo, Paragrafo } from "./styles";
 import Logoimg from "../../assets/logo.png";
 import Lista from "../lista";
-import { useDispatch } from "react-redux";
-import { open } from "../../store/reducers/cart"; 
+
+
 
 const Header = () => {
-  const dispatch = useDispatch();
-
-  const openCart = () => {
-    dispatch(open());
-  };
+  
 
   return (
     <Headerbar>
@@ -22,8 +18,6 @@ const Header = () => {
       </Paragrafo>
 
       <Lista />
-     
-     
     </Headerbar>
   );
 };
