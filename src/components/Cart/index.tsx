@@ -1,5 +1,6 @@
 
 import { remove } from "../../store/reducers/cart";
+import trashIcon from "../../assets/lixeira.png"
 
 import {
   Overlay,
@@ -50,9 +51,9 @@ const Cart = () => {
                 </Comida>
               </div>
 
-             <ButtonX onClick={() => dispatch(remove(item.id))}>
-                 🗑
-              </ButtonX>
+                <ButtonX onClick={() => dispatch(remove(item.id))}>
+      <img src={trashIcon} alt="Remover item" />
+    </ButtonX>
             </Item>
           ))}
         </ul>

@@ -98,11 +98,16 @@ export const Comida = styled.div`
 `;
 
 export const ButtonX = styled.button`
- width: 16px;
- height: 16px;
- border: none;
+  width: 16px;
+  height: 16px;
+  border: none;
   cursor: pointer;
   font-size: 16px;
   background-color: transparent;
-  
+  margin-top: 80px;
+
+  img {
+    width: 16px;   
+    height: 16px;  
+  }
 `;

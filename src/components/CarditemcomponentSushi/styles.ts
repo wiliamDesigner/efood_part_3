@@ -13,7 +13,7 @@ export const CardImageGroupSushi = styled.div`
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: auto;
   column-gap: 40px; 
-  row-gap: 40px; 
+  row-gap: 48px; 
   margin-top: 80px;
 
 
