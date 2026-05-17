@@ -105,7 +105,6 @@ export const ButtonX = styled.button`
   font-size: 16px;
   background-color: transparent;
   margin-top: 80px;
-
   img {
     width: 16px;   
     height: 16px;  
