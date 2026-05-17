@@ -1,44 +1,89 @@
-import { SideBar, Buttoncss } from "./styles";
+import { useState } from "react";
 
-import { Cep, Dados, Dados2, Titulo, Titulo2 } from "./styles";
+import Pagamento from "../pagamento";
 
-const Entrega = () => {
+import {
+  SideBar,
+  Buttoncss,
+  Cep,
+  Dados,
+  Dados2,
+  Titulo,
+  Titulo2,
+} from "./styles";
+
+type Props = {
+  voltarCarrinho: () => void;
+};
+
+const Entrega = ({ voltarCarrinho }: Props) => {
+  const [tela, setTela] = useState("entrega");
+
   return (
-    <SideBar>
-      <Titulo>
-        <h2>Entrega</h2>
-      </Titulo>
+    <>
+      {tela === "entrega" && (
+        <SideBar>
+          <Titulo>
+            <h2>Entrega</h2>
+          </Titulo>
 
-      <Dados>
-        <Titulo2>Quem irá entregar</Titulo2>
-        <Dados2 type="text" />
+          <Dados>
+            <Titulo2>Quem irá entregar</Titulo2>
 
-        <Titulo2>Endereço</Titulo2>
-        <Dados2 type="text" />
+            <Dados2 type="text" />
 
-        <Titulo2>Cidade</Titulo2>
-        <Dados2 type="text" />
+            <Titulo2>Endereço</Titulo2>
 
-        <Cep>
-          <div>
-            <label>CEP</label>
-            <input type="text" />
-          </div>
+            <Dados2 type="text" />
 
-          <div>
-            <label>Número</label>
-            <input type="text" />
-          </div>
-        </Cep>
+            <Titulo2>Cidade</Titulo2>
 
-        <p>Complemento(Opicional)</p>
-        <Dados2 type="text" />
-      </Dados>
+            <Dados2 type="text" />
 
-      <Buttoncss title="entrega">Continuar com a pagamento</Buttoncss>
+            <Cep>
+              <div>
+                <label>CEP</label>
 
-      <Buttoncss title="">Voltar para o carrinho</Buttoncss>
-    </SideBar>
+                <input type="text" />
+              </div>
+
+              <div>
+                <label>Número</label>
+
+                <input type="text" />
+              </div>
+            </Cep>
+
+            <p>Complemento (Opcional)</p>
+
+            <Dados2 type="text" />
+          </Dados>
+
+          <Buttoncss
+            as="button"
+            type="button"
+            title="Pagamento"
+            onClick={() => setTela("pagamento")}
+          >
+            Continuar com o pagamento
+          </Buttoncss>
+
+          <Buttoncss
+            as="button"
+            type="button"
+            onClick={voltarCarrinho}
+          >
+            Voltar para o carrinho
+          </Buttoncss>
+        </SideBar>
+      )}
+
+      {tela === "pagamento" && (
+        <Pagamento
+          voltarEntrega={() => setTela("entrega")}
+        />
+      )}
+    </>
   );
 };
 

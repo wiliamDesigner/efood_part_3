@@ -105,7 +105,9 @@ const Cart = () => {
       )}
 
       {/* ENTREGA */}
-      {tela === "entrega" && <Entrega />}
+      {tela === "entrega" && (
+        <Entrega voltarCarrinho={() => setTela("cart")} />
+      )}
     </CartContainer>
   );
 };

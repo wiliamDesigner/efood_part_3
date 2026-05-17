@@ -48,6 +48,7 @@ export const ParagrafoLeft = styled.p`
   font-size: 18px;
   font-family: "Roboto", sans-serif;
   font-weight: bold;
+  margin-left: 171px;
 
   white-space: nowrap;
 
@@ -61,6 +62,7 @@ export const Paragraforight = styled.p`
   font-size: 18px;
   font-family: "Roboto", sans-serif;
   font-weight: bold;
+  margin-right: 171px;
 
   white-space: nowrap;
 
