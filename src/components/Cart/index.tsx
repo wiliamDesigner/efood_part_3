@@ -31,6 +31,30 @@ const Cart = () => {
 
   const [tela, setTela] = useState("cart");
 
+  const [deliveryData, setDeliveryData] = useState({
+    receiver: "",
+
+    address: {
+      description: "",
+      city: "",
+      zipCode: "",
+      number: "",
+      complement: "",
+    },
+  });
+
+  const [paymentData, setPaymentData] = useState({
+    card: {
+      name: "",
+      number: "",
+      code: "",
+      expires: {
+        month: "",
+        year: "",
+      },
+    },
+  });
+
   const closeCart = () => {
     dispatch(close());
     setTela("cart");
@@ -45,7 +69,6 @@ const Cart = () => {
     <CartContainer className={isOpen ? "is-open" : ""}>
       <Overlay onClick={closeCart} />
 
-      {/* CARRINHO */}
       {tela === "cart" && (
         <SideBar>
           <ul>
@@ -96,7 +119,6 @@ const Cart = () => {
           <Buttoncss
             as="button"
             type="button"
-            title="Clique aqui para continuar com a compra"
             onClick={() => setTela("entrega")}
           >
             Continuar com a entrega
@@ -104,9 +126,15 @@ const Cart = () => {
         </SideBar>
       )}
 
-      {/* ENTREGA */}
       {tela === "entrega" && (
-        <Entrega voltarCarrinho={() => setTela("cart")} />
+        <Entrega
+          voltarCarrinho={() => setTela("cart")}
+          deliveryData={deliveryData}
+          setDeliveryData={setDeliveryData}
+          paymentData={paymentData}
+          setPaymentData={setPaymentData}
+          itens={itens}
+        />
       )}
     </CartContainer>
   );
