@@ -32,7 +32,7 @@ type Restaurante = {
   cardapio: Produto[];
 };
 
-// 🔥 props
+// props
 type Props = {
   adicionarAoCarrinho: (id: number) => void;
 };
@@ -98,7 +98,7 @@ function Pizzas({ adicionarAoCarrinho }: Props) {
 
               <Botao
                 onClick={() => {
-                  adicionarAoCarrinho(pizza.id); // 🔥 aqui atualiza
+                  adicionarAoCarrinho(pizza.id); //  aqui atualiza
                   setProdutoId(pizza.id);
                   setOpen(true);
                 }}

@@ -6,6 +6,8 @@ export const Centralizandotudo = styled.div`
   justify-content: center;
   align-items: center;
   padding: 40px 0;
+  margin-top: 56px;
+  margin-bottom: 120px;
 
 `;
 
@@ -20,16 +22,15 @@ export const Criandoagrid = styled.div`
 
    @media (max-width: 768px) {
     grid-template-columns: 1fr;
-    max-width: 400px;   /* 👈 controla largura */
-    margin: 0 auto;     /* 👈 CENTRALIZA */
-    padding: 0;         /* 👈 remove empurrão lateral */
+    max-width: 400px;  
+    margin: 0 auto;    
+    padding: 0;       
   }
 
   @media (max-width: 425px) {
     grid-template-columns: 1fr;
-    max-width: 400px;   /* 👈 controla largura */
-    margin: 0 auto;     /* 👈 CENTRALIZA */
-    padding: 0;         /* 👈 remove empurrão lateral */
+    max-width: 400px;   
+    margin: 0 auto;     
   }
 `;
 

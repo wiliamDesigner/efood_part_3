@@ -3,7 +3,7 @@ import backgroundimg from "../../assets/fundo.png";
 import { cores } from "../../Styles";
 
 export const Tudo = styled.div`
-  background-color: ${cores.branco_mais_claro};
+ /*cor de fundo para toda a página*/
 `;
 
 export const Headerbar = styled.header`

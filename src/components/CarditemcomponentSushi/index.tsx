@@ -1,4 +1,5 @@
 // CarditemcomponentSushi.tsx
+
 import React, { useEffect, useState } from "react";
 import {
   CardImageSushi,
@@ -12,9 +13,10 @@ import {
   AvaliacaoNotas,
   LinhaDoTitulo,
   NotaComEstrela,
-  ImageWrapper
+  ImageWrapper,
+  Linha,
 } from "./styles";
-import { CardItem } from "../Cardlista/styles";
+
 import Estrela from "../../assets/estrela.png";
 import { Link } from "react-router-dom";
 
@@ -45,13 +47,16 @@ const CarditemcomponentSushi: React.FC = () => {
   useEffect(() => {
     async function carregarRestaurantes() {
       try {
-        const res = await fetch("https://api-ebac.vercel.app/api/efood/restaurantes");
+        const res = await fetch(
+          "https://api-ebac.vercel.app/api/efood/restaurantes"
+        );
 
         if (!res.ok) {
           throw new Error(`Erro na API: ${res.status}`);
         }
 
         const data: Restaurante[] = await res.json();
+
         setRestaurantes(data);
       } catch (err) {
         console.error("Erro ao carregar restaurantes:", err);
@@ -75,33 +80,48 @@ const CarditemcomponentSushi: React.FC = () => {
     <CardImageGroupSushi>
       {restaurantes.map((restaurante) => (
         <CardSushiWrapper key={restaurante.id}>
-          <ImageWrapper >
-          <CardImageSushi src={restaurante.capa} alt={restaurante.titulo} />
+          <ImageWrapper>
+            <CardImageSushi
+              src={restaurante.capa}
+              alt={restaurante.titulo}
+            />
           </ImageWrapper>
 
           {restaurante.destacado && (
-            <DestaquedaSemana>Destaque da Semana</DestaquedaSemana>
+            <DestaquedaSemana>
+              Destaque da Semana
+            </DestaquedaSemana>
           )}
 
           <TipodeComida>{restaurante.tipo}</TipodeComida>
 
-          <CardItem>
-            <LinhaDoTitulo>
-              <NomedaComida>{restaurante.titulo}</NomedaComida>
-              <NotaComEstrela>
-                <AvaliacaoNotas>
-                  {restaurante.avaliacao.toFixed(1)}
-                </AvaliacaoNotas>
-                <img src={Estrela} alt="estrela da nota" />
-              </NotaComEstrela>
-            </LinhaDoTitulo>
+            <Linha>
+          <LinhaDoTitulo>
+            <NomedaComida>
+              {restaurante.titulo}
+            </NomedaComida>
 
-            <DescricaodoPrato>{restaurante.descricao}</DescricaodoPrato>
+            <NotaComEstrela>
+              <AvaliacaoNotas>
+                {restaurante.avaliacao.toFixed(1)}
+              </AvaliacaoNotas>
 
-            <Link to={`/perfil/${restaurante.id}`}>
-              <SaibaMais>Saiba mais</SaibaMais>
-            </Link>
-          </CardItem>
+              <img
+                src={Estrela}
+                alt="estrela da nota"
+              />
+            </NotaComEstrela>
+          </LinhaDoTitulo>
+          <DescricaodoPrato>
+            {restaurante.descricao}
+          </DescricaodoPrato>
+
+          <Link to={`/perfil/${restaurante.id}`}>
+            <SaibaMais>
+              Saiba mais
+            </SaibaMais>
+          </Link>
+          </Linha>
         </CardSushiWrapper>
       ))}
     </CardImageGroupSushi>

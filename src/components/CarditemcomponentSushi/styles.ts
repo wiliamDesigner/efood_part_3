@@ -3,55 +3,58 @@ import { cores } from "../../Styles";
 
 
 export const CardImageSushi = styled.img`
-  width: 472px;
+  width: 100%;
   height: 217px;
   object-fit: cover;
 `;
 
 export const CardImageGroupSushi = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: auto;
-  column-gap: 40px; 
-  row-gap: 48px; 
+  grid-template-columns: repeat(2, minmax(472px, 472px));
+  justify-content: center;
+  column-gap: 40px;
+  row-gap: 48px;
   margin-top: 80px;
+  width: 100%;
+ 
 
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
 
-@media (max-width: 768px) {
-  grid-template-columns: 1fr;
-  justify-items: center;
+    justify-items: center;
 
-  margin-top: 250px; 
-  margin-left: 240px;
-}
+    margin-top: 120px;
+  }
 
+  @media (max-width: 425px) {
+    grid-template-columns: 1fr;
 
-@media (max-width: 425px) {
-  grid-template-columns: 1fr;
-  justify-items: center;
+    justify-items: center;
 
-  margin-top: 250px; 
-  margin-left: -60px;
-}
-
-
-
+    margin-top: 80px;
+  }
 `;
+
 
 export const CardSushiWrapper = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
-  margin-bottom: 80px; 
   position: relative;
-  height: 100%;
-
-@media (max-width: 425px) {
- 
-  width: 70%;
-}
-
-
+  color: ${cores.vermelha};
+  margin-bottom: 120px;
+  @media (max-width: 425px) {
+    width: 70%;
+  }
 `;
+
+
+export const Linha = styled.div` /*linha vermelha em volta das coisas*/
+width: 472px;
+height: 181px;
+border: 1px solid red;
+`;
+
 
 export const ImageWrapper = styled.div`
   width: 100%;
@@ -61,7 +64,7 @@ export const ImageWrapper = styled.div`
 
 export const NomedaComida=styled.h1`
 font-size: 18px;
-margin: 0px;
+margin-left: 7px;
 `
 
 export const TipodeComida=styled.h2`
@@ -101,7 +104,7 @@ margin-left: 12px;
 
 export const SaibaMais=styled.button`
 margin-left: 12px;
-margin-top: auto;
+margin-top: 20px;
 color: #FFF8F2;
 background-color: ${cores.vermelha};
 border: none;
@@ -124,7 +127,7 @@ export const LinhaDoTitulo = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between; 
-  margin: 0 12px 12px 12px;  
+  margin-top: 8px;   
 `;
 
 export const NotaComEstrela = styled.div`

@@ -8,17 +8,19 @@ const Header = () => {
   
 
   return (
-    <Headerbar>
-      <Fundo />
+    <>
+      <Headerbar>
+        <Fundo />
 
-      <Logo src={Logoimg} alt="logo" />
+        <Logo src={Logoimg} alt="logo" />
 
-      <Paragrafo>
-        Viva experiências gastronômicas no conforto da sua casa
-      </Paragrafo>
+        <Paragrafo>
+          Viva experiências gastronômicas no conforto da sua casa
+        </Paragrafo>
+      </Headerbar>
 
       <Lista />
-    </Headerbar>
+    </>
   );
 };
 

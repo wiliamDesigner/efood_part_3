@@ -6,15 +6,14 @@ import { cores } from "../../Styles";
 export const Headerbar = styled.header`
   position: relative;
   width: 100%;
-  height: auto;
-  padding: 16px 8px;
+  height: 360px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 65.5px;
    z-index: 1;
-   background-color: ${cores.fundo_footer};
+   
   
   @media (max-width: 768px) {
     flex-direction: column;
@@ -39,13 +38,26 @@ export const Headerbar = styled.header`
 
 export const Fundo = styled.div` 
   background-image: url(${backgroundimg});
-  background-size: 70%; 
-  position: absolute; 
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  position: absolute;
+
   top: 0;
-  left: 0;
-  width: 100%;
-  height: 400px; 
-  z-index: 0; 
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 100vw;
+  height: 100%;
+  
+  /*width: 2031.81px;
+  height: 384px;
+  tem que deixar assim professor?
+*/
+  z-index: 0;
   pointer-events: none; 
  
 `;
@@ -59,7 +71,7 @@ export const Logo = styled.img`
 `;
 
 export const Paragrafo = styled.p`
-  max-width: 500px;
+  max-width: 900px;
   color: ${cores.vermelha};
   text-align: center;
   font-size: 36px;

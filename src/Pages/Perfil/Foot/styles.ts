@@ -13,7 +13,6 @@ export const FooterContainer = styled.div`
 
 export const Logo=styled.img`
 margin-bottom: 32px;
-
 `
 
 export const Texto=styled.p`
