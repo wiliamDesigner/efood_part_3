@@ -60,7 +60,8 @@ export const Logo = styled.img`
 `;
 
 export const Paragrafo = styled.p`
-  max-width: 900px;
+  width: 539px;
+  height: 84px;
   color: ${cores.vermelha};
   text-align: center;
   font-size: 36px;

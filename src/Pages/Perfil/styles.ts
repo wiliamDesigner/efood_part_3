@@ -22,8 +22,8 @@ export const Headerbar = styled.header`
 `;
 
 export const Menu = styled.div`
-   width: 100%;
-  max-width: 1024px;
+   width: 110%;
+  
 
   display: flex;
   align-items: center;
