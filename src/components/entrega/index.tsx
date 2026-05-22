@@ -40,6 +40,48 @@ const Entrega = ({
 }: Props) => {
   const [tela, setTela] = useState("entrega");
 
+  function validarFormulario() {
+    if (!deliveryData.receiver.trim()) {
+      alert("Preencha quem irá entregar");
+      return false;
+    }
+
+    if (!deliveryData.address.description.trim()) {
+      alert("Preencha o endereço");
+      return false;
+    }
+
+    if (!deliveryData.address.city.trim()) {
+      alert("Preencha a cidade");
+      return false;
+    }
+
+    if (!deliveryData.address.zipCode.trim()) {
+      alert("Preencha o CEP");
+      return false;
+    }
+
+    if (deliveryData.address.zipCode.length < 8) {
+      alert("CEP inválido");
+      return false;
+    }
+
+    if (!deliveryData.address.number.trim()) {
+      alert("Preencha o número");
+      return false;
+    }
+
+    return true;
+  }
+
+  function continuarPagamento() {
+    const formularioValido = validarFormulario();
+
+    if (formularioValido) {
+      setTela("pagamento");
+    }
+  }
+
   return (
     <>
       {tela === "entrega" && (
@@ -49,7 +91,7 @@ const Entrega = ({
           </Titulo>
 
           <Dados>
-            <Titulo2>Quem irá entregar</Titulo2>
+            <Titulo2>Quem irá receber</Titulo2>
 
             <Dados2
               type="text"
@@ -100,13 +142,19 @@ const Entrega = ({
 
                 <input
                   type="text"
+                  maxLength={8}
                   value={deliveryData.address.zipCode}
                   onChange={(e) =>
                     setDeliveryData({
                       ...deliveryData,
                       address: {
                         ...deliveryData.address,
-                        zipCode: e.target.value,
+
+                        // SOMENTE NÚMEROS
+                        zipCode: e.target.value.replace(
+                          /\D/g,
+                          ""
+                        ),
                       },
                     })
                   }
@@ -118,13 +166,19 @@ const Entrega = ({
 
                 <input
                   type="text"
+                  maxLength={4}
                   value={deliveryData.address.number}
                   onChange={(e) =>
                     setDeliveryData({
                       ...deliveryData,
                       address: {
                         ...deliveryData.address,
-                        number: e.target.value,
+
+                        // SOMENTE NÚMEROS
+                        number: e.target.value.replace(
+                          /\D/g,
+                          ""
+                        ),
                       },
                     })
                   }
@@ -152,7 +206,7 @@ const Entrega = ({
           <Buttoncss
             as="button"
             type="button"
-            onClick={() => setTela("pagamento")}
+            onClick={continuarPagamento}
           >
             Continuar com o pagamento
           </Buttoncss>

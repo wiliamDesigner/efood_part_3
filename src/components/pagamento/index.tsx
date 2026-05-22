@@ -39,7 +39,63 @@ const Pagamento = ({
 
   const [orderId, setOrderId] = useState("");
 
+  // VALIDAÇÃO
+  const validarPagamento = () => {
+    if (!paymentData.card.name.trim()) {
+      alert("Preencha o nome do cartão");
+      return false;
+    }
+
+    if (!paymentData.card.number.trim()) {
+      alert("Preencha o número do cartão");
+      return false;
+    }
+
+    if (paymentData.card.number.length < 16) {
+      alert("Número do cartão inválido");
+      return false;
+    }
+
+    if (!paymentData.card.code.trim()) {
+      alert("Preencha o CVV");
+      return false;
+    }
+
+    if (paymentData.card.code.length < 3) {
+      alert("CVV inválido");
+      return false;
+    }
+
+    if (!paymentData.card.expires.month.trim()) {
+      alert("Preencha o mês de vencimento");
+      return false;
+    }
+
+    if (paymentData.card.expires.month.length < 2) {
+      alert("Mês inválido");
+      return false;
+    }
+
+    if (!paymentData.card.expires.year.trim()) {
+      alert("Preencha o ano de vencimento");
+      return false;
+    }
+
+    if (paymentData.card.expires.year.length < 4) {
+      alert("Ano inválido");
+      return false;
+    }
+
+    return true;
+  };
+
   const handleSubmit = async () => {
+    const formularioValido = validarPagamento();
+
+    if (!formularioValido) {
+      return;
+    }
+
     const payload = {
       products: itens.map((item: any) => ({
         id: item.id,
@@ -96,13 +152,19 @@ const Pagamento = ({
 
                 <input
                   type="text"
+                  maxLength={19}
                   value={paymentData.card.number}
                   onChange={(e) =>
                     setPaymentData({
                       ...paymentData,
                       card: {
                         ...paymentData.card,
-                        number: e.target.value,
+
+                        // SOMENTE NÚMEROS
+                        number: e.target.value.replace(
+                          /\D/g,
+                          ""
+                        ),
                       },
                     })
                   }
@@ -114,13 +176,19 @@ const Pagamento = ({
 
                 <input
                   type="text"
+                  maxLength={4}
                   value={paymentData.card.code}
                   onChange={(e) =>
                     setPaymentData({
                       ...paymentData,
                       card: {
                         ...paymentData.card,
-                        code: e.target.value,
+
+                        // SOMENTE NÚMEROS
+                        code: e.target.value.replace(
+                          /\D/g,
+                          ""
+                        ),
                       },
                     })
                   }
@@ -134,19 +202,29 @@ const Pagamento = ({
 
                 <input
                   type="text"
+                  maxLength={2}
                   value={paymentData.card.expires.month}
-                  onChange={(e) =>
-                    setPaymentData({
-                      ...paymentData,
-                      card: {
-                        ...paymentData.card,
-                        expires: {
-                          ...paymentData.card.expires,
-                          month: e.target.value,
+                  onChange={(e) => {
+                    const valor =
+                      e.target.value.replace(
+                        /\D/g,
+                        ""
+                      );
+
+                    // NÃO DEIXA DIGITAR MAIOR QUE 12
+                    if (Number(valor) <= 12) {
+                      setPaymentData({
+                        ...paymentData,
+                        card: {
+                          ...paymentData.card,
+                          expires: {
+                            ...paymentData.card.expires,
+                            month: valor,
+                          },
                         },
-                      },
-                    })
-                  }
+                      });
+                    }
+                  }}
                 />
               </div>
 
@@ -155,6 +233,7 @@ const Pagamento = ({
 
                 <input
                   type="text"
+                  maxLength={4}
                   value={paymentData.card.expires.year}
                   onChange={(e) =>
                     setPaymentData({
@@ -163,7 +242,12 @@ const Pagamento = ({
                         ...paymentData.card,
                         expires: {
                           ...paymentData.card.expires,
-                          year: e.target.value,
+
+                          // SOMENTE NÚMEROS
+                          year: e.target.value.replace(
+                            /\D/g,
+                            ""
+                          ),
                         },
                       },
                     })

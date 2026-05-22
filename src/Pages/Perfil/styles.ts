@@ -103,7 +103,7 @@ export const TextoSobreImagem = styled.p`
   position: absolute;
 
   top: 32px;
-  left: 30%;
+  left: 34%;
 
   color: ${cores.branca};
 
@@ -125,7 +125,7 @@ export const TextoLadoce = styled.p`
   position: absolute;
 
   bottom: 32px;
-  left: 30%;
+  left: 34%;
 
   color: ${cores.branca};
 
