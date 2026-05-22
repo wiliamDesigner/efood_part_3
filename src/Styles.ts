@@ -20,8 +20,10 @@ export const Globalcss = createGlobalStyle`
 }
 
 body{
+  background-color: ${cores.branco_mais_claro};
   /*mudar aqui para descobrir a cor do fundo*/
   color: ${cores.branca};
+  overflow-x: hidden;
 }
 
 

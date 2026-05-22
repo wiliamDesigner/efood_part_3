@@ -16,7 +16,6 @@ export const Criandoagrid = styled.div`
   grid-template-columns: repeat(3,1fr);
   gap: 80px;
   width: 100%;
-  max-width: 1200px;
   padding: 0 24px;
   box-sizing: border-box;
 

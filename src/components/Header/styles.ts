@@ -5,7 +5,7 @@ import { cores } from "../../Styles";
 
 export const Headerbar = styled.header`
   position: relative;
-  width: 100%;
+  width: auto;
   height: 360px;
   display: flex;
   flex-direction: column;
@@ -45,12 +45,9 @@ export const Fundo = styled.div`
 
   position: absolute;
 
-  top: 0;
-  left: 50%;
+ 
 
-  transform: translateX(-50%);
-
-  width: 100vw;
+  width: 300%;
   height: 100%;
   
   /*width: 2031.81px;

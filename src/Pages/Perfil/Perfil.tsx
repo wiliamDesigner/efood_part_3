@@ -1,5 +1,4 @@
 import {
-  Containerimg,
   Containerimgep,
   Headerbar,
   Imgapressentacao,
@@ -45,10 +44,10 @@ function Perfil() {
   const [restaurante, setRestaurante] = useState<Restaurante | null>(null);
   const [loading, setLoading] = useState(true);
 
-  // 🔥 carrinho
+  //  carrinho
   const [carrinho, setCarrinho] = useState<number[]>([]);
 
-  // 🔥 função adicionar
+  //  função adicionar
   function adicionarAoCarrinho(id: number) {
     setCarrinho((prev) => [...prev, id]);
   }
@@ -77,42 +76,45 @@ function Perfil() {
   if (!restaurante) return <p>Restaurante não encontrado.</p>;
 
   return (
-    <Tudo>
+     <Tudo>
+
+    <Headerbar>
       <LayoutContainer>
-        <Headerbar>
-          <Menu>
-            <ParagrafoLeft>Restaurante</ParagrafoLeft>
+        <Menu>
+          <ParagrafoLeft>Restaurante</ParagrafoLeft>
 
-            <Link to="/">
-              <img src={logoimg2} alt="Logo" />
-            </Link>
+          <Link to="/">
+            <img src={logoimg2} alt="Logo" />
+          </Link>
 
-       
-            <Paragraforight>
-              {carrinho.length} Produto(s) no carrinho
-            </Paragraforight>
-          </Menu>
-        </Headerbar>
-
-        <Containerimg>
-          <Containerimgep>
-            <TextoSobreImagem>{restaurante.tipo}</TextoSobreImagem>
-
-            <Imgapressentacao
-              src={restaurante.capa}
-              alt={restaurante.titulo}
-            />
-
-            <TextoLadoce>{restaurante.titulo}</TextoLadoce>
-          </Containerimgep>
-        </Containerimg>
-
-        
-        <Pizzas adicionarAoCarrinho={adicionarAoCarrinho} />
+          <Paragraforight>
+            {carrinho.length} Produto(s) no carrinho
+          </Paragraforight>
+        </Menu>
       </LayoutContainer>
+    </Headerbar>
 
-      <Footer />
-    </Tudo>
+    <LayoutContainer>
+     
+        <Containerimgep>
+          <TextoSobreImagem>{restaurante.tipo}</TextoSobreImagem>
+
+          <Imgapressentacao
+            src={restaurante.capa}
+            alt={restaurante.titulo}
+          />
+
+          <TextoLadoce>{restaurante.titulo}</TextoLadoce>
+        </Containerimgep>
+     
+    </LayoutContainer>
+
+    <LayoutContainer>
+      <Pizzas adicionarAoCarrinho={adicionarAoCarrinho} />
+    </LayoutContainer>
+
+    <Footer />
+  </Tudo>
   );
 }
 

@@ -3,33 +3,37 @@ import backgroundimg from "../../assets/fundo.png";
 import { cores } from "../../Styles";
 
 export const Tudo = styled.div`
- /*cor de fundo para toda a página*/
+  width: 100%;
+  background-color: #fff;
 `;
 
 export const Headerbar = styled.header`
   background-image: url(${backgroundimg});
-  max-width: 1366px;
-  margin: 0 auto;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
   width: 100%;
-  padding: 16px 8px;
+  padding: 24px 0;
 
   display: flex;
-  align-items: center;
   justify-content: center;
 `;
 
 export const Menu = styled.div`
   width: 100%;
+  max-width: 1024px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  
+  padding: 0 24px;
+
   @media (max-width: 768px) {
     flex-direction: row;
     gap: 12px;
   }
-
 
   @media (max-width: 425px) {
     flex-direction: column;
@@ -40,15 +44,15 @@ export const Menu = styled.div`
 
 export const Logo = styled.img`
   width: 125px;
-  height: 57.5px;
+  height: 58px;
 `;
 
 export const ParagrafoLeft = styled.p`
   color: ${cores.vermelha};
+
   font-size: 18px;
   font-family: "Roboto", sans-serif;
-  font-weight: bold;
-  margin-left: 171px;
+  font-weight: 700;
 
   white-space: nowrap;
 
@@ -59,10 +63,10 @@ export const ParagrafoLeft = styled.p`
 
 export const Paragraforight = styled.p`
   color: ${cores.vermelha};
+
   font-size: 18px;
   font-family: "Roboto", sans-serif;
-  font-weight: bold;
-  margin-right: 171px;
+  font-weight: 700;
 
   white-space: nowrap;
 
@@ -71,57 +75,72 @@ export const Paragraforight = styled.p`
   }
 `;
 
-export const Containerimg = styled.div`
+
+export const Containerimgep = styled.div`
+  position: relative;
+
+  width: 100%;
+  max-width: 1366px;
+  height: 280px;
+
+  margin: 0 auto;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
+  overflow: hidden;
 `;
 
 export const Imgapressentacao = styled.img`
   width: 100%;
-  height: 280px;
+  height: 100%;
   object-fit: cover;
-  filter: brightness(0.5);
-  display: block;
-`;
 
-export const Containerimgep = styled.div`
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  background-color: ${cores.branco_mais_claro};
+  filter: brightness(0.5);
+
+  display: block;
 `;
 
 export const TextoSobreImagem = styled.p`
   position: absolute;
-  top: 2%;
-  left: 170px;
+
+  top: 32px;
+  left: 10%;
+
   color: ${cores.branca};
+
   font-size: 32px;
-  z-index: 2;
-  opacity: 0.5;
   font-family: "Roboto", sans-serif;
+  font-weight: 100;
+
+  opacity: 0.7;
+
+  z-index: 2;
 
   @media (max-width: 768px) {
-    left: 16px;
+    left: 24px;
     font-size: 20px;
   }
 `;
 
 export const TextoLadoce = styled.p`
   position: absolute;
-  top: 60%;
-  left: 170px;
+
+  bottom: 32px;
+  left: 10%;
+
   color: ${cores.branca};
+
   font-size: 32px;
-  font-weight: bold;
+  font-weight: 700;
+
   z-index: 2;
+
   font-family: "Roboto", sans-serif;
 
   @media (max-width: 768px) {
-    left: 16px;
+    left: 24px;
     font-size: 20px;
   }
 `;
