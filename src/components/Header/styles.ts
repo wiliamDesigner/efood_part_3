@@ -44,16 +44,8 @@ export const Fundo = styled.div`
   background-repeat: no-repeat;
 
   position: absolute;
-
- 
-
   width: 300%;
   height: 100%;
-  
-  /*width: 2031.81px;
-  height: 384px;
-  tem que deixar assim professor?
-*/
   z-index: 0;
   pointer-events: none; 
  

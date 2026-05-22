@@ -4,31 +4,33 @@ import { cores } from "../../Styles";
 
 export const Tudo = styled.div`
   width: 100%;
-  background-color: #fff;
+   background-color: ${cores.branco_mais_claro};/* mudar aqui para mudar o fundo da segunda pagina*/ 
 `;
 
 export const Headerbar = styled.header`
-  background-image: url(${backgroundimg});
+   background-image: url(${backgroundimg});
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 
   width: 100%;
-  padding: 24px 0;
+  height: 180px;
 
   display: flex;
   justify-content: center;
+  align-items: center;
 `;
 
 export const Menu = styled.div`
-  width: 100%;
+   width: 100%;
   max-width: 1024px;
 
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 
-  padding: 0 24px;
+  gap: 341px;
+  
 
   @media (max-width: 768px) {
     flex-direction: row;
@@ -80,22 +82,17 @@ export const Containerimgep = styled.div`
   position: relative;
 
   width: 100%;
-  max-width: 1366px;
   height: 280px;
-
-  margin: 0 auto;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
   overflow: hidden;
 `;
 
 export const Imgapressentacao = styled.img`
-  width: 100%;
+   width: 100%;
   height: 100%;
+
   object-fit: cover;
+  object-position: center;
 
   filter: brightness(0.5);
 
@@ -106,7 +103,7 @@ export const TextoSobreImagem = styled.p`
   position: absolute;
 
   top: 32px;
-  left: 10%;
+  left: 30%;
 
   color: ${cores.branca};
 
@@ -128,7 +125,7 @@ export const TextoLadoce = styled.p`
   position: absolute;
 
   bottom: 32px;
-  left: 10%;
+  left: 30%;
 
   color: ${cores.branca};
 

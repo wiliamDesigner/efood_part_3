@@ -44,10 +44,10 @@ function Perfil() {
   const [restaurante, setRestaurante] = useState<Restaurante | null>(null);
   const [loading, setLoading] = useState(true);
 
-  //  carrinho
+  // carrinho
   const [carrinho, setCarrinho] = useState<number[]>([]);
 
-  //  função adicionar
+  // adicionar ao carrinho
   function adicionarAoCarrinho(id: number) {
     setCarrinho((prev) => [...prev, id]);
   }
@@ -58,9 +58,12 @@ function Perfil() {
         const res = await fetch(
           "https://api-ebac.vercel.app/api/efood/restaurantes"
         );
+
         const data: Restaurante[] = await res.json();
+
         const encontrado =
           data.find((r) => r.id === restauranteId) || null;
+
         setRestaurante(encontrado);
       } catch (erro) {
         console.error("Erro:", erro);
@@ -73,48 +76,49 @@ function Perfil() {
   }, [restauranteId]);
 
   if (loading) return <p>Carregando...</p>;
+
   if (!restaurante) return <p>Restaurante não encontrado.</p>;
 
   return (
-     <Tudo>
+    <Tudo>
+      <Headerbar>
+        <LayoutContainer>
+          <Menu>
+            <ParagrafoLeft>Restaurante</ParagrafoLeft>
 
-    <Headerbar>
+            <Link to="/">
+              <img src={logoimg2} alt="Logo" />
+            </Link>
+
+            <Paragraforight>
+              {carrinho.length} Produto(s) no carrinho
+            </Paragraforight>
+          </Menu>
+        </LayoutContainer>
+      </Headerbar>
+
+    
+      <Containerimgep>
+        <TextoSobreImagem>
+          {restaurante.tipo}
+        </TextoSobreImagem>
+
+        <Imgapressentacao
+          src={restaurante.capa}
+          alt={restaurante.titulo}
+        />
+
+        <TextoLadoce>
+          {restaurante.titulo}
+        </TextoLadoce>
+      </Containerimgep>
+
       <LayoutContainer>
-        <Menu>
-          <ParagrafoLeft>Restaurante</ParagrafoLeft>
-
-          <Link to="/">
-            <img src={logoimg2} alt="Logo" />
-          </Link>
-
-          <Paragraforight>
-            {carrinho.length} Produto(s) no carrinho
-          </Paragraforight>
-        </Menu>
+        <Pizzas adicionarAoCarrinho={adicionarAoCarrinho} />
       </LayoutContainer>
-    </Headerbar>
 
-    <LayoutContainer>
-     
-        <Containerimgep>
-          <TextoSobreImagem>{restaurante.tipo}</TextoSobreImagem>
-
-          <Imgapressentacao
-            src={restaurante.capa}
-            alt={restaurante.titulo}
-          />
-
-          <TextoLadoce>{restaurante.titulo}</TextoLadoce>
-        </Containerimgep>
-     
-    </LayoutContainer>
-
-    <LayoutContainer>
-      <Pizzas adicionarAoCarrinho={adicionarAoCarrinho} />
-    </LayoutContainer>
-
-    <Footer />
-  </Tudo>
+      <Footer />
+    </Tudo>
   );
 }
 
