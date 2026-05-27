@@ -18,6 +18,7 @@ export const Criandoagrid = styled.div`
   width: 100%;
   padding: 0 24px;
   box-sizing: border-box;
+  margin-left: 121px;
 
    @media (max-width: 768px) {
     grid-template-columns: 1fr;
@@ -45,6 +46,7 @@ export const Quadradosdapizza = styled.div`
   padding: 4px;
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
+ 
   
 `;
 

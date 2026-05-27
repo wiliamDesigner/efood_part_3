@@ -86,7 +86,7 @@ export const Content = styled.div`
   height: 344px; 
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding: 24px;
   background-color: ${cores.vermelha};
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 
