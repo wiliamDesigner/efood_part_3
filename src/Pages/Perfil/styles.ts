@@ -99,10 +99,10 @@ export const Imgapressentacao = styled.img`
   display: block;
 `;
 
-export const TextoSobreImagem = styled.p`
+export const TextoSobreImagem = styled.p` /*aqui muda o texto do meio da imagem de cima*/
   position: absolute;
 
-  top: 32px;
+  top: 5px;
   left: 30%;
 
   color: ${cores.branca};
@@ -124,7 +124,7 @@ export const TextoSobreImagem = styled.p`
 export const TextoLadoce = styled.p`
   position: absolute;
 
-  bottom: 32px;
+  bottom: -13px;
   left: 30%;
 
   color: ${cores.branca};
