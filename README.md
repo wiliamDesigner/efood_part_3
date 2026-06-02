@@ -1,46 +1,126 @@
-# Getting Started with Create React App
+# eFood
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Projeto de uma aplicação web de delivery de restaurantes, desenvolvida em React com TypeScript. A aplicação permite visualizar restaurantes, acessar o perfil de um restaurante, consultar itens do cardápio, adicionar produtos ao carrinho e finalizar um pedido com dados de entrega e pagamento.
 
-## Available Scripts
+## Funcionalidades
 
-In the project directory, you can run:
+- Página inicial com apresentação da marca e lista de restaurantes.
+- Página de perfil do restaurante com imagem de capa, categoria e cardápio.
+- Modal de detalhes do produto com descrição, porção e preço.
+- Carrinho lateral com listagem de itens adicionados e valor total.
+- Remoção de produtos do carrinho.
+- Formulário de entrega com validação de campos obrigatórios.
+- Formulário de pagamento com validação de dados do cartão.
+- Envio do pedido para a API de checkout.
+- Tela de confirmação com número do pedido.
 
-### `npm start`
+## Tecnologias utilizadas
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- React
+- TypeScript
+- React Router DOM
+- Redux Toolkit
+- React Redux
+- RTK Query
+- Styled Components
+- Axios
+- Create React App
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Integração com API
 
-### `npm test`
+O projeto consome a API pública da EBAC:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```txt
+https://api-ebac.vercel.app/api/efood
+```
 
-### `npm run build`
+Principais endpoints usados:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- `GET /restaurantes`: carrega os restaurantes e seus cardápios.
+- `POST /checkout`: envia os dados do pedido, entrega e pagamento.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Estrutura do projeto
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```txt
+src/
+  assets/              Imagens usadas na interface
+  components/          Componentes reutilizáveis da aplicação
+  Pages/               Páginas principais, como Home e Perfil
+  services/            Configuração da API
+  store/               Configuração do Redux e reducer do carrinho
+  App.tsx              Componente principal
+  routes.jsx           Configuração das rotas
+  index.tsx            Entrada da aplicação
+```
 
-### `npm run eject`
+## Rotas
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+| Rota | Descrição |
+| --- | --- |
+| `/` | Página inicial |
+| `/Perfil/:id` | Perfil de um restaurante específico |
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Como executar o projeto
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Antes de começar, é necessário ter o Node.js instalado.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+1. Instale as dependências:
 
-## Learn More
+```bash
+npm install
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2. Inicie o servidor de desenvolvimento:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+npm start
+```
+
+3. Acesse no navegador:
+
+```txt
+http://localhost:3000
+```
+
+## Scripts disponíveis
+
+```bash
+npm start
+```
+
+Executa a aplicação em modo de desenvolvimento.
+
+```bash
+npm run build
+```
+
+Gera a versão de produção na pasta `build`.
+
+```bash
+npm test
+```
+
+Executa os testes em modo interativo.
+
+```bash
+npm run eject
+```
+
+Remove a configuração padrão do Create React App. Use apenas se realmente necessário.
+
+## Deploy
+
+O projeto possui arquivos de configuração para publicação em plataformas como Vercel e Netlify:
+
+- `vercel.json`
+- `netlify.toml`
+- `public/_redirects`
+
+Essas configurações redirecionam as rotas para o `index.html`, permitindo que o React Router funcione corretamente em produção.
+
+## Observações
+
+- O carrinho é controlado pelo Redux Toolkit.
+- Os estilos são criados com Styled Components.
+- O checkout envia os dados para a API da EBAC e retorna um número de pedido.
+- Algumas telas carregam dados diretamente da API de restaurantes.
